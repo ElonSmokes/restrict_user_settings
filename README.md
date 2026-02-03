@@ -20,7 +20,30 @@ Nextcloud app that hides sections in **Settings → User** (personal settings) f
    ```
    cp -r restrict_user_settings /path/to/nextcloud/apps/
    ```
-2. Enable the app in **Administration → Apps** (search for "Restrict user settings").
+2. **Fix ownership** so the web server can read the files (required if you see "appinfo file cannot be read"):
+   ```
+   chown -R www-data:www-data /path/to/nextcloud/apps/restrict_user_settings
+   ```
+3. Enable the app in **Administration → Apps** (search for "Restrict user settings"), or via CLI:
+   ```
+   php occ app:enable restrict_user_settings
+   ```
+
+### Nextcloud AIO (Docker)
+
+1. Copy the app into the container (from the host, where your app folder lives):
+   ```
+   docker cp /path/to/restrict_user_settings nextcloud-aio-nextcloud:/var/www/html/apps/
+   ```
+2. Set ownership inside the container:
+   ```
+   docker exec -u root nextcloud-aio-nextcloud chown -R www-data:www-data /var/www/html/apps/restrict_user_settings
+   ```
+3. Enable the app:
+   ```
+   docker exec -u www-data nextcloud-aio-nextcloud php /var/www/html/occ app:enable restrict_user_settings
+   ```
+   If you still get "appinfo file cannot be read", run `ls -la /var/www/html/apps/restrict_user_settings/appinfo` inside the container and ensure `info.xml` exists and is readable by `www-data`.
 
 ## Configuration
 

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
     <id>restrict_user_settings</id>
@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <licence>agpl</licence>
     <author>Custom</author>
-    <namespace>OCA\RestrictUserSettings</namespace>
+    <namespace>RestrictUserSettings</namespace>
     <category>administration</category>
     <dependencies>
         <nextcloud min-version="28" max-version="33"/>
