@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>restrict_user_settings</id>
+    <name>Restrict user settings</name>
+    <summary>Hide personal settings sections for non-admin users. Admins control visibility via checkboxes.</summary>
+    <description>Hides options in Settings → User (Personal info, Notifications, Sharing, Appearance, Availability, Privacy) for non-admin users. Only Security with Devices &amp; sessions can be shown. Admins configure visibility in Administration → Restrict user settings.</description>
+    <version>1.0.0</version>
+    <licence>agpl</licence>
+    <author>Custom</author>
+    <namespace>OCA\RestrictUserSettings</namespace>
+    <category>administration</category>
+    <dependencies>
+        <nextcloud min-version="28" max-version="33"/>
+    </dependencies>
+    <settings>
+        <admin-section>OCA\RestrictUserSettings\Settings\AdminSection</admin-section>
+        <admin>OCA\RestrictUserSettings\Settings\AdminSettings</admin>
+    </settings>
+</info>
